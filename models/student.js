@@ -24,8 +24,7 @@ module.exports = (sequelize, DataTypes) => {
           isEmail: true
         }
       },
-      courses: DataTypes.STRING,
-      gpa: DataTypes.INTEGER
+      courses: DataTypes.STRING
     },
     {
       sequelize,
