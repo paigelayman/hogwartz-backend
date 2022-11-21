@@ -22,7 +22,8 @@ const createStudent = async (req, res) => {
     const student = await Student.create({ ...req.body })
     res.send(student)
   } catch (error) {
-    throw error
+    res.status(500).send({ status: 'Error', msg: error.message })
+
   }
 }
 
