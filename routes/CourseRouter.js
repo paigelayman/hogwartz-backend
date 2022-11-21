@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const controller = require('../controllers/CourseController')
 
-router.get('/courses', controller.getCourses)
+router.get('/', controller.getCourses)
 
 router.get('/courses/:courses_id', controller.getOneCourse)
 
