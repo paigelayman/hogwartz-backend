@@ -12,19 +12,14 @@ module.exports = (sequelize, DataTypes) => {
       score: {
         type: DataTypes.INTEGER
       },
-      courseId: {
-        type: DataTypes.INTEGER,
-        onDelete: 'CASCADE',
-        References: {
-          model: 'students',
-          key: 'id'
-        }
+      letter: {
+        type: DataTypes.STRING
       },
-      studentId: {
+      studentCourseId: {
         type: DataTypes.INTEGER,
         onDelete: 'CASCADE',
         References: {
-          model: 'students',
+          model: 'studentcourses',
           key: 'id'
         }
       }
