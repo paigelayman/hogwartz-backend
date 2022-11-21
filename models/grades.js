@@ -3,8 +3,7 @@ const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Grades extends Model {
     static associate(models) {
-      Grades.belongsTo(models.Student, { foreignKey: 'studentId' })
-      Grades.belongsTo(models.Courses, { foreignKey: 'courseId' })
+      Grades.belongsTo(models.StudentCourses, { foreignKey: 'studentCourseId' })
     }
   }
   Grades.init(
