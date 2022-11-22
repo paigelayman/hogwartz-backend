@@ -1,5 +1,7 @@
-const { StudentCourses } = require('../models')
-const courses = require('../models/courses')
+const { StudentCourses,sequelize} = require('../models')
+
+
+const db = require ('../models/index')
 
 // const getGradesInCourse = async (req, res) => {
 //   try {
@@ -36,6 +38,20 @@ const getOneStudentCourse = async (req, res) => {
     res.status(500).send({ status: 'Error', msg: 'get one error' })
   }
 }
+const GetAllStudentCoursesWithPk = async (req, res) => {
+  const studentId= parseInt(req.params.student_id)
+	try {
+		const studentCourses = await db.sequelize.query(`SELECT * FROM "student_courses" WHERE "studentId" = ${studentId}`,
+    {
+			type:db.sequelize.QueryTypes.SELECT
+		})
+		
+		res.send(studentCourses);
+	} catch (error) {
+    res.status(500).send({ status: 'Error', msg: 'what the heck' })
+	}
+}
+
 const createStudentCourse = async (req, res) => {
   try {
     let studentId = parseInt(req.params.student_id)
@@ -55,5 +71,6 @@ const createStudentCourse = async (req, res) => {
 module.exports = {
   getStudentCourses,
   getOneStudentCourse,
-  createStudentCourse
+  createStudentCourse,
+  GetAllStudentCoursesWithPk
 }
