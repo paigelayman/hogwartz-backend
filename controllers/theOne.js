@@ -31,7 +31,8 @@ const getCourseAndGrade = async (req, res) => {
       raw: true,
       nest: true
     })
-    res.send({ student, studentcourses, grade, gradeScore })
+    const allCourses = await Courses.findAll()
+    res.send({ student, studentcourses, grade, gradeScore, allCourses })
   } catch (error) {
     res.status(500).send({ status: 'Error', msg: 'get error' })
   }
