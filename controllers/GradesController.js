@@ -15,6 +15,14 @@ const getOneGrade = async (req, res) => {
     res.status(500).send({ status: 'Error', msg: error.message })
   }
 }
+const getOneStudentGrade = async (req, res) => {
+  try {
+    const grades = await Grades.findByPk(req.params.studentCourseId)
+    res.send(grades)
+  } catch (error) {
+    res.status(500).send({ status: 'Error', msg: error.message })
+  }
+}
 const createGrade = async (req, res) => {
   try {
     const grades = await Grades.create({ ...req.body })
@@ -26,5 +34,6 @@ const createGrade = async (req, res) => {
 module.exports = {
   getGrades,
   getOneGrade,
-  createGrade
+  createGrade,
+  getOneStudentGrade
 }
