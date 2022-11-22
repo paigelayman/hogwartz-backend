@@ -3,6 +3,7 @@ const { StudentCourses,sequelize} = require('../models')
 
 const db = require ('../models/index')
 
+
 // const getGradesInCourse = async (req, res) => {
 //   try {
 //     const studentGrades = await StudentCourses.findAll({

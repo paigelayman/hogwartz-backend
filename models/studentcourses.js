@@ -21,6 +21,14 @@ module.exports = (sequelize, DataTypes) => {
           model: 'courses',
           key: 'id'
         }
+      },
+      gradeId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'grades',
+          key: 'id'
+        }
       }
     },
     {
