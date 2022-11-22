@@ -29,7 +29,9 @@ module.exports = (sequelize, DataTypes) => {
           model: 'grades',
           key: 'id'
         }
-      }
+      },
+      score: { type: DataTypes.INTEGER },
+      letter: { type: DataTypes.STRING }
     },
     {
       sequelize,
