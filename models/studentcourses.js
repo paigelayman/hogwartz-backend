@@ -22,14 +22,6 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       },
-      gradeId: {
-        type: DataTypes.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'grades',
-          key: 'id'
-        }
-      },
       score: { type: DataTypes.INTEGER },
       letter: { type: DataTypes.STRING }
     },

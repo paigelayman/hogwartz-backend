@@ -9,4 +9,6 @@ router.get('/:studentcourses_id', controller.getOneStudentCourse)
 
 router.post('/new', controller.createStudentCourse)
 
+router.put('/update/:studentcourses_id', controller.updateStudentCourse)
+
 module.exports = router
