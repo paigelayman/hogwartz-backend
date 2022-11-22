@@ -36,6 +36,18 @@ const getOneStudentCourse = async (req, res) => {
     res.status(500).send({ status: 'Error', msg: 'get one error' })
   }
 }
+const GetAllStudentCoursesWithPk = async (req, res) => {
+	try {
+		const studentCourses = await db.sequelize.query('SELECT * FROM student_courses',{
+			type:db.sequelize.QueryTypes.SELECT
+		})
+		
+		res.send(studentCour);
+	} catch (error) {
+		throw error;
+	}
+}
+
 const createStudentCourse = async (req, res) => {
   try {
     let studentId = parseInt(req.params.student_id)
@@ -55,5 +67,6 @@ const createStudentCourse = async (req, res) => {
 module.exports = {
   getStudentCourses,
   getOneStudentCourse,
-  createStudentCourse
+  createStudentCourse,
+  GetAllStudentCoursesWithPk
 }
